@@ -2,44 +2,250 @@ import 'package:flutter/material.dart';
 import 'package:veterapp/main.dart';
 
 class Registro extends StatefulWidget {
-  const Registro({super.key});
+  //const Registro({super.key});
 
   @override
-  State<Registro> createState() => _RegistroState();
+  _RegistroState createState() => _RegistroState();
 }
 
 class _RegistroState extends State<Registro> {
-  final _claveFormulario = GlobalKey<FormState>();
+  // late TextEditingController _controller;
+  //GlobalKey<FormState> _llaveformulario = new GlobalKey();
+  TextEditingController nombreCtrl = TextEditingController();
+  TextEditingController appelidoCtrl = new TextEditingController();
+  TextEditingController celularCtrl = new TextEditingController();
+  TextEditingController emailCtrl = new TextEditingController();
+  TextEditingController contrasenaCtrl = new TextEditingController();
+  TextEditingController fnacimientoCtrl = new TextEditingController();
+  TextEditingController masnombreCtrl = new TextEditingController();
+  TextEditingController masfnacimientoCtrl = new TextEditingController();
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _controller = TextEditingController();
+  // }
+
+  // @override
+  // void dispose() {
+  //   _controller.dispose();
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       //appBar: AppBar(title: Text("Primera App")),
       body: Container(
+          padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
-              child: Form(
-                  key: _claveFormulario,
-                  child: Column(
-                    children: [
-                      Container(
-                          margin: EdgeInsets.all(20),
-                          child:
-                              Image.asset("assets/images/IconoVeterApp.png")),
-                      etiquetas(name: "Nombres"),
-                      etiquetas(name: "Apellidos"),
-                      etiquetas(name: "Celular"),
-                      etiquetas(name: "Email"),
-                      etiquetas(name: "Contraseña"),
-                      etiquetas(name: "Fecha de Nacimiento"),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("REGISTRAR"),
-                        style: TextButton.styleFrom(
-                          primary: Colors.black,
-                          backgroundColor: Colors.amber,
-                        ),
+              //key: _claveFormulario,
+              child: Column(
+            children: [
+              Container(
+                  margin: EdgeInsets.all(5),
+                  child: Row(children: [
+                    Image.asset("assets/images/IconoVeterApp.png"),
+                    CircleAvatar(
+                      backgroundColor: Colors.brown.shade800,
+                      child: const Text(
+                        'AH',
+                        style: TextStyle(fontSize: 40),
                       ),
-                    ],
-                  )))),
+                      radius: 40,
+                    )
+                  ])),
+              Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        etiquetas(name: "Nombres"),
+                        Container(
+                            child: Expanded(
+                                child: SizedBox(
+                                    height: 30,
+                                    child: TextField(
+                                      controller: nombreCtrl,
+                                      keyboardType: TextInputType.name,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                    ))))
+                      ])),
+              Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        etiquetas(name: "Apellidos"),
+                        Container(
+                            child: Expanded(
+                                child: SizedBox(
+                                    height: 30,
+                                    child: TextField(
+                                      controller: appelidoCtrl,
+                                      keyboardType: TextInputType.name,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                    ))))
+                      ])),
+              Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        etiquetas(name: "Celular"),
+                        Container(
+                            child: Expanded(
+                                child: SizedBox(
+                                    height: 30,
+                                    child: TextField(
+                                      controller: celularCtrl,
+                                      keyboardType: TextInputType.phone,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                    ))))
+                      ])),
+              Container(
+                  margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        etiquetas(name: "Email"),
+                        Container(
+                            child: Expanded(
+                                child: SizedBox(
+                                    height: 30,
+                                    child: TextField(
+                                      controller: nombreCtrl,
+                                      keyboardType: TextInputType.emailAddress,
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                      ),
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(),
+                                      ),
+                                    ))))
+                      ])),
+              Container(
+                  //margin: EdgeInsets.only(bottom: 0.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                    etiquetas(name: "Contraseña"),
+                    Container(
+                        child: Expanded(
+                            child: SizedBox(
+                                height: 30,
+                                child: TextField(
+                                  obscureText: true,
+                                  controller: contrasenaCtrl,
+                                  keyboardType: TextInputType.visiblePassword,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ))))
+                  ])),
+              Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    etiquetas(name: "Fecha de Nacimiento"),
+                    Container(
+                        child: Expanded(
+                            child: SizedBox(
+                                height: 30,
+                                child: TextField(
+                                  controller: fnacimientoCtrl,
+                                  keyboardType: TextInputType.datetime,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ))))
+                  ]),
+              Container(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    "MASCOTA",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  )),
+              Container(
+                  //margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                    etiquetas(name: "Nombre"),
+                    Container(
+                        child: Expanded(
+                            child: SizedBox(
+                                height: 30,
+                                child: TextField(
+                                  controller: masnombreCtrl,
+                                  keyboardType: TextInputType.name,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ))))
+                  ])),
+              Container(
+                  //margin: EdgeInsets.only(bottom: 10.0),
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                    etiquetas(name: "Fecha de Nacimiento"),
+                    Container(
+                        child: Expanded(
+                            child: SizedBox(
+                                height: 30,
+                                child: TextField(
+                                  controller: masfnacimientoCtrl,
+                                  keyboardType: TextInputType.name,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                  ),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                  ),
+                                ))))
+                  ])),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text("REGISTRAR"),
+                style: TextButton.styleFrom(
+                  primary: Colors.black,
+                  backgroundColor: Colors.amber,
+                ),
+              ),
+              const IconoRedes(),
+            ],
+          ))),
     );
   }
 }
@@ -82,32 +288,14 @@ class etiquetas extends StatelessWidget {
     //           ]));
     // }
     return Container(
-        padding: EdgeInsets.all(5),
-        child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                  width: 90,
-                  child: Text(
-                    name + ": ",
-                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                    overflow: TextOverflow.clip,
-                  )),
-              Container(
-                  child: Expanded(
-                      child: const SizedBox(
-                          height: 30,
-                          child: TextField(
-                            keyboardType: TextInputType.phone,
-                            style: TextStyle(
-                              fontSize: 14,
-                            ),
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                            ),
-                          )))),
-            ]));
+      padding: EdgeInsets.all(5),
+      width: 90,
+      child: Text(
+        name + ": ",
+        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+        overflow: TextOverflow.clip,
+      ),
+    );
   }
 }
 
