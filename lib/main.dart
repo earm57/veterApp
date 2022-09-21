@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:flutter/material.dart';
+import 'package:veterapp/menu_principal.dart';
 import 'package:veterapp/registro.dart';
 
 void main() => runApp(const VeterApp());
@@ -61,7 +62,10 @@ class _BotonIngresarState extends State<BotonIngresar> {
           const SizedBox(height: 30),
           ElevatedButton(
             style: style,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => MenuPrincipal()));
+            },
             child:
                 const Text('INGRESAR', style: TextStyle(color: Colors.black)),
           ),
@@ -97,6 +101,7 @@ class _FormularioInicioSesionState extends State<FormularioInicioSesion> {
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 16),
           child: TextField(
+            keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               filled: true,
               fillColor: Colors.greenAccent,

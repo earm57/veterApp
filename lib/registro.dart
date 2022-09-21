@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:veterapp/main.dart';
+import 'package:veterapp/menu_principal.dart';
 
 class Registro extends StatefulWidget {
   //const Registro({super.key});
@@ -36,24 +37,44 @@ class _RegistroState extends State<Registro> {
     return Scaffold(
       //appBar: AppBar(title: Text("Primera App")),
       body: Container(
-          padding: EdgeInsets.all(20),
+          margin: EdgeInsets.only(top: 25, left: 10, right: 10),
           child: SingleChildScrollView(
               //key: _claveFormulario,
               child: Column(
-            children: [
-              Container(
-                  margin: EdgeInsets.all(5),
-                  child: Row(children: [
-                    Image.asset("assets/images/IconoVeterApp.png"),
-                    CircleAvatar(
-                      backgroundColor: Colors.brown.shade800,
-                      child: const Text(
-                        'AH',
-                        style: TextStyle(fontSize: 40),
-                      ),
-                      radius: 40,
-                    )
-                  ])),
+            children: <Widget>[
+              Stack(children: [
+                SizedBox(
+                    width: double.infinity,
+                    height: 150,
+                    child: Image.asset(
+                      "assets/images/IconoVeterApp.png",
+                      scale: 1.5,
+                    )),
+                Positioned(
+                  right: 1,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.brown.shade800,
+                    child: const Text(
+                      'VA',
+                      style: TextStyle(fontSize: 35),
+                    ),
+                    radius: 35,
+                  ),
+                )
+              ]),
+              // Container(
+              //     margin: EdgeInsets.all(5),
+              //     child: Row(children: [
+              //       Image.asset("assets/images/IconoVeterApp.png"),
+              //       CircleAvatar(
+              //         backgroundColor: Colors.brown.shade800,
+              //         child: const Text(
+              //           'AH',
+              //           style: TextStyle(fontSize: 40),
+              //         ),
+              //         radius: 40,
+              //       )
+              //     ])),
               Container(
                   margin: EdgeInsets.only(bottom: 10.0),
                   child: Row(
@@ -186,7 +207,7 @@ class _RegistroState extends State<Registro> {
                                 ))))
                   ]),
               Container(
-                  padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(10),
                   child: Text(
                     "MASCOTA",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -236,7 +257,10 @@ class _RegistroState extends State<Registro> {
                                 ))))
                   ])),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MenuPrincipal()));
+                },
                 child: Text("REGISTRAR"),
                 style: TextButton.styleFrom(
                   primary: Colors.black,
