@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:veterapp/calendario.dart';
 import 'package:veterapp/mapas.dart';
 import 'package:veterapp/main.dart';
 
@@ -72,7 +73,13 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                             style: TextButton.styleFrom(
                               textStyle: const TextStyle(fontSize: 16),
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          TableBasicsExample()));
+                            },
                             child: const Text('Agendar cita',
                                 style: TextStyle(color: Colors.black)),
                           ),
