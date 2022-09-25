@@ -61,7 +61,7 @@ class _RegistroState extends State<Registro> {
                             child: Expanded(
                                 child: SizedBox(
                                     height: 30,
-                                    child: TextField(
+                                    child: TextFormField(
                                       controller: nombreCtrl,
                                       keyboardType: TextInputType.name,
                                       style: TextStyle(
@@ -83,7 +83,7 @@ class _RegistroState extends State<Registro> {
                             child: Expanded(
                                 child: SizedBox(
                                     height: 30,
-                                    child: TextField(
+                                    child: TextFormField(
                                       controller: appelidoCtrl,
                                       keyboardType: TextInputType.name,
                                       style: TextStyle(
@@ -105,7 +105,7 @@ class _RegistroState extends State<Registro> {
                             child: Expanded(
                                 child: SizedBox(
                                     height: 30,
-                                    child: TextField(
+                                    child: TextFormField(
                                       controller: celularCtrl,
                                       keyboardType: TextInputType.phone,
                                       style: TextStyle(
@@ -127,7 +127,7 @@ class _RegistroState extends State<Registro> {
                             child: Expanded(
                                 child: SizedBox(
                                     height: 30,
-                                    child: TextField(
+                                    child: TextFormField(
                                       controller: emailCtrl,
                                       keyboardType: TextInputType.emailAddress,
                                       style: TextStyle(
@@ -149,7 +149,7 @@ class _RegistroState extends State<Registro> {
                         child: Expanded(
                             child: SizedBox(
                                 height: 30,
-                                child: TextField(
+                                child: TextFormField(
                                   obscureText: true,
                                   controller: contrasenaCtrl,
                                   keyboardType: TextInputType.visiblePassword,
@@ -170,13 +170,14 @@ class _RegistroState extends State<Registro> {
                         child: Expanded(
                             child: SizedBox(
                                 height: 30,
-                                child: TextField(
+                                child: TextFormField(
                                   controller: fnacimientoCtrl,
                                   keyboardType: TextInputType.datetime,
                                   style: TextStyle(
                                     fontSize: 14,
                                   ),
                                   decoration: InputDecoration(
+                                    hintText: ("AAAAMMDD"),
                                     border: OutlineInputBorder(),
                                   ),
                                 ))))
@@ -198,7 +199,7 @@ class _RegistroState extends State<Registro> {
                         child: Expanded(
                             child: SizedBox(
                                 height: 30,
-                                child: TextField(
+                                child: TextFormField(
                                   controller: masnombreCtrl,
                                   keyboardType: TextInputType.name,
                                   style: TextStyle(
@@ -220,13 +221,14 @@ class _RegistroState extends State<Registro> {
                         child: Expanded(
                             child: SizedBox(
                                 height: 30,
-                                child: TextField(
+                                child: TextFormField(
                                   controller: masfnacimientoCtrl,
                                   keyboardType: TextInputType.name,
                                   style: TextStyle(
                                     fontSize: 14,
                                   ),
                                   decoration: InputDecoration(
+                                    hintText: ("AAAAMMDD"),
                                     border: OutlineInputBorder(),
                                   ),
                                 ))))
