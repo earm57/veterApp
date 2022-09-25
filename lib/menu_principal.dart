@@ -3,6 +3,7 @@ import 'package:veterapp/MapsVeter.dart';
 import 'package:veterapp/calendario.dart';
 import 'package:veterapp/homepage.dart';
 import 'package:veterapp/main.dart';
+import 'package:veterapp/redessociales.dart';
 
 class MenuPrincipal extends StatefulWidget {
   const MenuPrincipal({super.key});

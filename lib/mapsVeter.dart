@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:veterapp/homepage.dart';
 import 'package:veterapp/main.dart';
+import 'package:veterapp/redessociales.dart';
 
 class Mapa_veterinarias extends StatefulWidget {
   const Mapa_veterinarias({Key? key}) : super(key: key);
@@ -65,7 +66,7 @@ class _Mapa_veterinariasState extends State<Mapa_veterinarias> {
               backgroundColor: Colors.amber,
             ),
           ),
-          IconoRedes(),
+          const IconoRedes(),
         ],
       ),
     )));
