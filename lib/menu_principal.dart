@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:veterapp/MapsVeter.dart';
 import 'package:veterapp/calendario.dart';
-import 'package:veterapp/mapas.dart';
 import 'package:veterapp/main.dart';
 
 class MenuPrincipal extends StatefulWidget {
@@ -121,7 +121,8 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => MyApp()));
+                                      builder: (context) =>
+                                          Mapa_veterinarias()));
                             },
                             child: const Text('Veterinarias cercanas',
                                 style: TextStyle(color: Colors.black)),

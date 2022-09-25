@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:veterapp/menu_principal.dart';
 import 'package:veterapp/registro.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() => runApp(const VeterApp());
 
@@ -174,19 +176,20 @@ class IconoRedes extends StatelessWidget {
             // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
             icon: FaIcon(FontAwesomeIcons.facebook),
             onPressed: () {
-              print("Pressed");
+              launchUrlString('https://www.facebook.com');
             }),
         IconButton(
-            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-            icon: FaIcon(FontAwesomeIcons.twitter),
-            onPressed: () {
-              print("Pressed");
-            }),
+          // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+          icon: FaIcon(FontAwesomeIcons.twitter),
+          onPressed: () {
+            launchUrlString('https://www.twitter.com');
+          },
+        ),
         IconButton(
             // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
             icon: FaIcon(FontAwesomeIcons.instagramSquare),
             onPressed: () {
-              print("Pressed");
+              launchUrlString('https://www.instagram.com');
             })
       ],
     ));
