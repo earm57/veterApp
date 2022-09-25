@@ -346,153 +346,153 @@ class etiquetas extends StatelessWidget {
   }
 }
 
-void main() async {
-  // Avoid errors caused by flutter upgrade.
-  // Importing 'package:flutter/widgets.dart' is required.
-  WidgetsFlutterBinding.ensureInitialized();
-  // Open the database and store the reference.
-  final database = openDatabase(
-    // Set the path to the database. Note: Using the `join` function from the
-    // `path` package is best practice to ensure the path is correctly
-    // constructed for each platform.
-    join(await getDatabasesPath(), 'usuario_database.db'),
-    // When the database is first created, create a table to store dogs.
-    onCreate: (db, version) {
-      // Run the CREATE TABLE statement on the database.
-      return db.execute(
-        '''
-        CREATE  TABLE usuarios(
-      id INTEGER PRIMARY KEY,
-      nombres TEXT,
-      apellidos TEXT,
-      celuLar INTEGER,
-      email TEXT,
-      contrasenia TEXT,
-      fnacimiento TEXT,
-      mascotanombre TEXT,
-      mascotafnacimiento TEXT
-      )''',
-      );
-    },
-    // Establece la versión. Esto ejecuta la función onCreate y proporciona una
-    // ruta para realizar actualizacones y defradaciones en la base de datos.
-    version: 1,
-  );
+// void main() async {
+//   // Avoid errors caused by flutter upgrade.
+//   // Importing 'package:flutter/widgets.dart' is required.
+//   WidgetsFlutterBinding.ensureInitialized();
+//   // Open the database and store the reference.
+//   final database = openDatabase(
+//     // Set the path to the database. Note: Using the `join` function from the
+//     // `path` package is best practice to ensure the path is correctly
+//     // constructed for each platform.
+//     join(await getDatabasesPath(), 'usuario_database.db'),
+//     // When the database is first created, create a table to store dogs.
+//     onCreate: (db, version) {
+//       // Run the CREATE TABLE statement on the database.
+//       return db.execute(
+//         '''
+//         CREATE  TABLE usuarios(
+//       id INTEGER PRIMARY KEY,
+//       nombres TEXT,
+//       apellidos TEXT,
+//       celuLar INTEGER,
+//       email TEXT,
+//       contrasenia TEXT,
+//       fnacimiento TEXT,
+//       mascotanombre TEXT,
+//       mascotafnacimiento TEXT
+//       )''',
+//       );
+//     },
+//     // Establece la versión. Esto ejecuta la función onCreate y proporciona una
+//     // ruta para realizar actualizacones y defradaciones en la base de datos.
+//     version: 1,
+//   );
 
-  Future<void> insertUsuario(Usuario usuario) async {
-    // Obtiene una referencia de la base de datos
-    final Database db = await database;
+//   Future<void> insertUsuario(Usuario usuario) async {
+//     // Obtiene una referencia de la base de datos
+//     final Database db = await database;
 
-    // Inserta el Usuario en la tabla correcta. También puede especificar el
-    // `conflictAlgorithm` para usar en caso de que el mismo Usuario se inserte dos veces.
-    // En este caso, reemplaza cualquier dato anterior.
-    await db.insert(
-      'usuarios',
-      usuario.toMap(),
-      conflictAlgorithm: ConflictAlgorithm.replace,
-    );
-  }
-
-  Future<List<Usuario>> usuarios() async {
-    // Obtiene una referencia de la base de datos
-    final Database db = await database;
-
-    // Consulta la tabla por todos los Usuarios.
-    final List<Map<String, dynamic>> maps = await db.query('usuarios');
-
-    // Convierte List<Map<String, dynamic> en List<Usuario>.
-    return List.generate(maps.length, (i) {
-      return Usuario(
-          id: maps[i]['id'],
-          nombres: maps[i]['nombres'],
-          apellidos: maps[i]['apellidos'],
-          celular: maps[i]['celular'],
-          email: maps[i]['email'],
-          contrasenia: maps[i]['contrasenia'],
-          fnacimiento: maps[i]['fnacimiento'],
-          mascotafnacimiento: maps[i]['mascotafnacimiento'],
-          mascotanombre: maps[i]['mascotanombre']);
-    });
-  }
-
-  Future<void> updateUsuario(Usuario usuario) async {
-    // Obtiene una referencia de la base de datos
-    final db = await database;
-
-    // Actualiza el Usuario dado
-    await db.update(
-      'usuarios',
-      usuario.toMap(),
-      // Aseguúrate de que solo actualizarás el Usuario con el id coincidente
-      where: "id = ?",
-      // Pasa el id Usuario a través de whereArg para prevenir SQL injection
-      whereArgs: [usuario.id],
-    );
-  }
-
-  Future<void> deleteUsuario(int id) async {
-    // Obtiene una referencia de la base de datos
-    final db = await database;
-
-    // Elimina el Usuario de la base de datos
-    await db.delete(
-      'usuarios',
-      // Utiliza la cláusula `where` para eliminar un usuario específico
-      where: "id = ?",
-      // Pasa el id Usuario a través de whereArg para prevenir SQL injection
-      whereArgs: [id],
-    );
-  }
-
-  // var fido = Usuario(
-  //   id: 0,
-  //   nombres: 'Fido',
-  //   apellidos: 35,
-  // );
-
-  // Inserta un usuario en la base de datos
-  //await insertUsuario(fido);
-
-  // Imprime la lista de usuarios (solamente Fido por ahora)
-  print(await usuarios());
-
-  // Actualiza la edad de Fido y lo guarda en la base de datos
-  // fido = Usuario(
-  //   id: fido.id,
-  //   nombres: fido.nombres,
-  //   apellidos: fido.apellidos + 7,
-  // );
-  // await updateUsuario(fido);
-
-  // Imprime la información de Fido actualizada
-//   print(await usuarios());
-
-//   // Elimina a Fido de la base de datos
-//   await deleteUsuario(fido.id);
-
-//   // Imprime la lista de dos (vacía)
-//   print(await usuarios());
-// }
-
-// class Usuario {
-//   final int id;
-//   final String nombres;
-//   final int apellidos;
-
-//   Usuario({required this.id, required this.nombres, required this.apellidos});
-
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'id': id,
-//       'nombres': nombres,
-//       'apellidos': apellidos,
-//     };
+//     // Inserta el Usuario en la tabla correcta. También puede especificar el
+//     // `conflictAlgorithm` para usar en caso de que el mismo Usuario se inserte dos veces.
+//     // En este caso, reemplaza cualquier dato anterior.
+//     await db.insert(
+//       'usuarios',
+//       usuario.toMap(),
+//       conflictAlgorithm: ConflictAlgorithm.replace,
+//     );
 //   }
 
-//   // Implementa toString para que sea más fácil ver información sobre cada perro
-//   // usando la declaración de impresión.
-//     @override
-//     String toString() {
-//       return 'Usuario{id: $id, nombres: $nombres, apellidos: $apellidos}';
-//     }
-}
+//   Future<List<Usuario>> usuarios() async {
+//     // Obtiene una referencia de la base de datos
+//     final Database db = await database;
+
+//     // Consulta la tabla por todos los Usuarios.
+//     final List<Map<String, dynamic>> maps = await db.query('usuarios');
+
+//     // Convierte List<Map<String, dynamic> en List<Usuario>.
+//     return List.generate(maps.length, (i) {
+//       return Usuario(
+//           id: maps[i]['id'],
+//           nombres: maps[i]['nombres'],
+//           apellidos: maps[i]['apellidos'],
+//           celular: maps[i]['celular'],
+//           email: maps[i]['email'],
+//           contrasenia: maps[i]['contrasenia'],
+//           fnacimiento: maps[i]['fnacimiento'],
+//           mascotafnacimiento: maps[i]['mascotafnacimiento'],
+//           mascotanombre: maps[i]['mascotanombre']);
+//     });
+//   }
+
+//   Future<void> updateUsuario(Usuario usuario) async {
+//     // Obtiene una referencia de la base de datos
+//     final db = await database;
+
+//     // Actualiza el Usuario dado
+//     await db.update(
+//       'usuarios',
+//       usuario.toMap(),
+//       // Aseguúrate de que solo actualizarás el Usuario con el id coincidente
+//       where: "id = ?",
+//       // Pasa el id Usuario a través de whereArg para prevenir SQL injection
+//       whereArgs: [usuario.id],
+//     );
+//   }
+
+//   Future<void> deleteUsuario(int id) async {
+//     // Obtiene una referencia de la base de datos
+//     final db = await database;
+
+//     // Elimina el Usuario de la base de datos
+//     await db.delete(
+//       'usuarios',
+//       // Utiliza la cláusula `where` para eliminar un usuario específico
+//       where: "id = ?",
+//       // Pasa el id Usuario a través de whereArg para prevenir SQL injection
+//       whereArgs: [id],
+//     );
+//   }
+
+//   // var fido = Usuario(
+//   //   id: 0,
+//   //   nombres: 'Fido',
+//   //   apellidos: 35,
+//   // );
+
+//   // Inserta un usuario en la base de datos
+//   //await insertUsuario(fido);
+
+//   // Imprime la lista de usuarios (solamente Fido por ahora)
+//   print(await usuarios());
+
+//   // Actualiza la edad de Fido y lo guarda en la base de datos
+//   // fido = Usuario(
+//   //   id: fido.id,
+//   //   nombres: fido.nombres,
+//   //   apellidos: fido.apellidos + 7,
+//   // );
+//   // await updateUsuario(fido);
+
+//   // Imprime la información de Fido actualizada
+// //   print(await usuarios());
+
+// //   // Elimina a Fido de la base de datos
+// //   await deleteUsuario(fido.id);
+
+// //   // Imprime la lista de dos (vacía)
+// //   print(await usuarios());
+// // }
+
+// // class Usuario {
+// //   final int id;
+// //   final String nombres;
+// //   final int apellidos;
+
+// //   Usuario({required this.id, required this.nombres, required this.apellidos});
+
+// //   Map<String, dynamic> toMap() {
+// //     return {
+// //       'id': id,
+// //       'nombres': nombres,
+// //       'apellidos': apellidos,
+// //     };
+// //   }
+
+// //   // Implementa toString para que sea más fácil ver información sobre cada perro
+// //   // usando la declaración de impresión.
+// //     @override
+// //     String toString() {
+// //       return 'Usuario{id: $id, nombres: $nombres, apellidos: $apellidos}';
+// //     }
+// }
