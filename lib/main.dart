@@ -11,10 +11,11 @@ class VeterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        //primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.green[300],
-        colorSchemeSeed: Color(0XB5AC49), useMaterial3: true,
+        colorSchemeSeed: Color(0XB5AC49),
+        useMaterial3: true,
       ),
       routes: {
         '/': (context) => const HomepageVeterApp(),

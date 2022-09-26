@@ -12,20 +12,17 @@ class IconoRedes extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
             icon: FaIcon(FontAwesomeIcons.facebook),
             onPressed: () {
               launchUrlString('https://www.facebook.com');
             }),
         IconButton(
-          // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
           icon: FaIcon(FontAwesomeIcons.twitter),
           onPressed: () {
             launchUrlString('https://www.twitter.com');
           },
         ),
         IconButton(
-            // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
             icon: FaIcon(FontAwesomeIcons.instagramSquare),
             onPressed: () {
               launchUrlString('https://www.instagram.com');

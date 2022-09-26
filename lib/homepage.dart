@@ -71,10 +71,7 @@ class _HomepageVeterAppState extends State<HomepageVeterApp> {
         style: TextButton.styleFrom(
           textStyle: const TextStyle(fontSize: 12),
         ),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Registro()));
-        },
+        onPressed: () {},
         child: const Text('¿OLVIDASTE TU CONTRASEÑA?',
             style: TextStyle(decoration: TextDecoration.underline)),
       ),
@@ -83,6 +80,7 @@ class _HomepageVeterAppState extends State<HomepageVeterApp> {
           textStyle: const TextStyle(fontSize: 12),
         ),
         onPressed: () {
+          // PENDIENTE LÓGICA PARA VALIDAR CORREO Y CONTRASEÑA E INICIAR SESIÓN.
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => Registro()));
         },

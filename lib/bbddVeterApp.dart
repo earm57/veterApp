@@ -11,8 +11,6 @@ class UsuarioDatabase {
 
   UsuarioDatabase._init();
 
-  //final String tableCartItems = 'cart_items';
-
   Future<Database> get database async {
     if (_database != null) return _database!;
 
@@ -88,7 +86,7 @@ class UsuarioDatabase {
     await db.update(
       'usuarios',
       usuario.toMap(),
-      // Aseguúrate de que solo actualizarás el Usuario con el id coincidente
+      // Aseguramos que solo actualizara el Usuario con el id coincidente
       where: "id = ?",
       // Pasa el id Usuario a través de whereArg para prevenir SQL injection
       whereArgs: [usuario.id],
@@ -98,7 +96,6 @@ class UsuarioDatabase {
   Future<void> deleteUsuario(int id) async {
     // Obtiene una referencia de la base de datos
     final db = await database;
-
     // Elimina el Usuario de la base de datos
     await db.delete(
       'usuarios',
@@ -108,56 +105,4 @@ class UsuarioDatabase {
       whereArgs: [id],
     );
   }
-
-  // var fido = Usuario(
-  //   id: 0,
-  //   nombres: 'Fido',
-  //   apellidos: 35,
-  // );
-
-  // Inserta un usuario en la base de datos
-  //await insertUsuario(fido);
-
-  // Imprime la lista de usuarios (solamente Fido por ahora)
-  // print(await usuarios());
-
-  // Actualiza la edad de Fido y lo guarda en la base de datos
-  // fido = Usuario(
-  //   id: fido.id,
-  //   nombres: fido.nombres,
-  //   apellidos: fido.apellidos + 7,
-  // );
-  // await updateUsuario(fido);
-
-  // Imprime la información de Fido actualizada
-//   print(await usuarios());
-
-//   // Elimina a Fido de la base de datos
-//   await deleteUsuario(fido.id);
-
-//   // Imprime la lista de dos (vacía)
-//   print(await usuarios());
-// }
-
-// class Usuario {
-//   final int id;
-//   final String nombres;
-//   final int apellidos;
-
-//   Usuario({required this.id, required this.nombres, required this.apellidos});
-
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'id': id,
-//       'nombres': nombres,
-//       'apellidos': apellidos,
-//     };
-//   }
-
-//   // Implementa toString para que sea más fácil ver información sobre cada perro
-//   // usando la declaración de impresión.
-//     @override
-//     String toString() {
-//       return 'Usuario{id: $id, nombres: $nombres, apellidos: $apellidos}';
-//     }
 }

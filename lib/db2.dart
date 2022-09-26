@@ -1,4 +1,5 @@
-// import 'package:sqflite/sqflite.dart';
+// DOCUMENTO GUIA PARA TRABAJAR BASE DE DATOS 
+//import 'package:sqflite/sqflite.dart';
 // import 'package:path/path.dart';
 // import 'package:veterapp/models.dart';
 
