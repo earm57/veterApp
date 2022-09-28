@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:veterapp/homepage.dart';
 import 'package:veterapp/mapsVeter.dart';
 import 'package:veterapp/menu_principal.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() => runApp(const VeterApp());
+void main() {
+  initializeDateFormatting().then((_) => runApp(VeterApp()));
+}
 
 class VeterApp extends StatelessWidget {
   const VeterApp({super.key});
