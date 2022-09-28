@@ -23,6 +23,7 @@ class _Mapa_veterinariasState extends State<Mapa_veterinarias> {
   Widget build(BuildContext context) {
     return (Scaffold(
         body: Container(
+      margin: EdgeInsets.fromLTRB(10, 25, 10, 25),
       alignment: AlignmentDirectional.center,
       child: Column(
         children: [
